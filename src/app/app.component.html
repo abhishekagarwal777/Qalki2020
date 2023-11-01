@@ -1,0 +1,20 @@
+<div class="row header">
+  <div class="col-12 col-md-10">
+    <h1 class="glow" (click)="goToBook()">Q</h1>
+  </div>
+  <div class="col-12 col-md-2">
+    <ng-template *ngIf="(auth.user | async); else showRegister">
+      <span (click)="signOut()" style="cursor: pointer;color: white"> Sign Out</span>
+      <h4 (click)="goToProfile()">{{ auth.user | json }}</h4>
+    </ng-template>
+    <ng-template #showRegister>
+      <a style="color:white" routerLink="auth">Register</a>
+    </ng-template>
+  </div>
+</div>
+<div class="row">
+  <div class="col separator"></div>
+  <div class="col separator"></div>
+  <div class="col separator"></div>
+</div>
+<router-outlet></router-outlet>

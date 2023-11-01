@@ -1,0 +1,81 @@
+<div class="row d-flex justify-content-center mt-3">
+  <div class="col-4">
+    <mdb-tabset #staticTabs [buttonClass]="'md-tabs'" [contentClass]="'card'">
+      <mdb-tab heading="Sign In">
+        <div class="row">
+          <div class="col-12">
+            <form>
+              <div class="md-form">
+                <input type="email" id="email1" [(ngModel)]="email" name="email" class="form-control">
+                <label for="email1" class="font-weight-light">Email/Username</label>
+              </div>
+
+              <div class="md-form">
+                <input type="password" id="password1" [(ngModel)]="password" name="password"
+                  class="form-control">
+                <label for="password1" class="font-weight-light">Password</label>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                <div>
+                  <mdb-checkbox>Remember me</mdb-checkbox>
+                </div>
+                <div>
+                  <a href="" class="text-dark">Forgot password?</a>
+                </div>
+              </div>
+
+              <div class="text-center py-4">
+                <button type="submit" mdbBtn color="dark" block="true" rounded="true" mdbWavesEffect (click)="login()">Login</button>
+              </div>
+
+              <div class="alert alert-danger" role="alert">
+                  Incorrect Email/Password combination, 3 tries left
+              </div>
+            </form>
+          </div>
+        </div>
+      </mdb-tab>
+      <mdb-tab heading="Sign Up">
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <form>
+                  <div class="md-form">
+                    <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control" mdbInputDirective
+                    [mdbValidate]="false">
+                    <label for="fullName" class="font-weight-light">Full name</label>
+                  </div>
+
+                  <div class="md-form">
+                    <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control" mdbInputDirective
+                      data-error="Username already taken" [validateSuccess]="false">
+                    <label for="username" class="font-weight-light">Username</label>
+                  </div>
+
+                  <div class="md-form">
+                    <input type="email" id="email" [(ngModel)]="signUpEmail" name="signUpEmail" class="form-control" mdbInputDirective
+                      data-error="Invalid Email" [validateSuccess]="false">
+                    <label for="email" class="font-weight-light">Email</label>
+                  </div>
+
+                  <div class="md-form">
+                    <input type="password" id="password" [(ngModel)]="signUpPassword" name="signUpPassword" class="form-control"
+                      mdbInputDirective data-error="Password doesn't meet minimum requirements" [validateSuccess]="false">
+                    <label for="password" class="font-weight-light">Password</label>
+                  </div>
+
+                  <div class="text-center py-4">
+                    <button type="submit" mdbBtn color="dark" block="true" rounded="true" mdbWavesEffect (click)="signUp()">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mdb-tab>
+    </mdb-tabset>
+
+  </div>
+</div>
